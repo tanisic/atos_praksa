@@ -15,7 +15,7 @@ public class Program {
 		else return true;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		int counter = 0;
 		
 		if(IsValidInterval()){
@@ -40,7 +40,7 @@ public class Program {
 			}
 		}
 		else {
-			System.out.println("Broj se ne nalazi u zadanom intervalu.");
+			throw new Exception("Broj se ne nalazi u zadanom intervalu.");
 		}
 
 	}

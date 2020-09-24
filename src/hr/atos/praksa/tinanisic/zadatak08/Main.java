@@ -5,6 +5,7 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
+		
 		LeapYearCalendar calendar = new LeapYearCalendar();
 		Scanner scan = new Scanner(System.in);
 		
