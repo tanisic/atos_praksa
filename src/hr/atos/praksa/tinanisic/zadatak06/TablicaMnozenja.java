@@ -6,6 +6,7 @@ public class TablicaMnozenja {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		System.out.println("Unesi ime kreatora tablice: ");
 		String name = scan.nextLine();
 		System.out.println("-------------------------------");
 		System.out.println(": : :  TABLICA  MNOZENJA  : : :");
@@ -21,7 +22,7 @@ public class TablicaMnozenja {
 			System.out.println();
 		}
 		System.out.println("-------------------------------");
-		 System.out.format(":  :  :  :  :  :  :  : by %5s",name);
+		 System.out.format(":  :  :  :  :  :  :  :by %6.6s\n",name);
 		System.out.println("-------------------------------");
 		
 		
