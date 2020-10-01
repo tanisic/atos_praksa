@@ -21,7 +21,8 @@ public class TablicaMnozenja {
 			System.out.println();
 		}
 		System.out.println("-------------------------------");
-		System.out.format(":  :  :  :  :  :  :  : by %31s",name);
+		 System.out.format(":  :  :  :  :  :  :  : by %5s",name);
+		System.out.println("-------------------------------");
 		
 		
 	}

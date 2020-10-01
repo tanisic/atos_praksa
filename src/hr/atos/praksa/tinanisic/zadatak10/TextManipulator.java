@@ -6,18 +6,12 @@ import java.util.*;
 
 public class TextManipulator  {
 
-	File directory;
+	private File directory;
 	
 	public TextManipulator(String directory) {
 		this.directory = new File(directory);
 	}
-	public void changeDirectory(String newDirectory) {
-		File temp = new File(newDirectory);
-		if(temp.isDirectory()) {
-			this.directory=temp;
-		}
-	}
-	
+		
 	public List<String> extractTxtFiles(){
 		List<String> txtFiles = new ArrayList<String>();
 		

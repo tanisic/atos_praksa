@@ -7,7 +7,7 @@ public class Program {
 	 static int lowerBound = 2;
 	 static int upperBound = 130;
 	
-	public static boolean IsValidInterval() {
+	public static boolean isValidInterval() {
 		
 		if(lowerBound >= 10 || upperBound <= 100) {
 			return false;
@@ -18,7 +18,7 @@ public class Program {
 	public static void main(String[] args) throws Exception {
 		int counter = 0;
 		
-		if(IsValidInterval()){
+		if(isValidInterval()){
 			
 			for(int i = lowerBound;i<=upperBound;i++) {
 				

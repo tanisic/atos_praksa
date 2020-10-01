@@ -2,11 +2,11 @@ package hr.atos.praksa.tinanisic.zadatak04;
 
 public class Program {
 	
-public static boolean IsEven(int number){
+public static boolean isEven(int number){
 	if(number%2==0) return true;
 	else return false;
 }
-public static void CheckMultiples(int number){
+public static void checkMultiples(int number){
 	int[] multiples = {3,5,11};
 	
 	for(int multiple : multiples){
@@ -21,13 +21,13 @@ public static void CheckMultiples(int number){
 		int[] array = {2,7,11,15,19};
 		
 		for(int element : array) {
-			if(IsEven(element)){
+			if(isEven(element)){
 				System.out.println(element + " je paran broj");
-				CheckMultiples(element);
+				checkMultiples(element);
 			}
 			else{
 				System.out.println(element + " nije paran broj");
-				CheckMultiples(element);			
+				checkMultiples(element);			
 			}
 			
 		}

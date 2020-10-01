@@ -19,7 +19,7 @@ public class Program {
 		System.out.println("Unesi direktorij za pretrazivanje: ");
 		String directory = scan.nextLine();
 		TextManipulator textManipulator = new TextManipulator(directory);
-		System.out.println("Unesi frazu koju zelis pronaci: ");
+		System.out.println("Unesi frazu koju zelis pronaci u datotekama: ");
 		String phrase = scan.nextLine();
 		txtFiles = textManipulator.extractTxtFiles();
 		csvFiles = textManipulator.extractCsvFiles();
@@ -32,7 +32,7 @@ public class Program {
 				FileReader fileReader = new FileReader(directory+"\\"+file);
 				BufferedReader textReader = new BufferedReader(fileReader);
 				String currentLine;
-				while((currentLine=textReader.readLine())!=null) {
+				while((currentLine=textReader.readLine()) != null) {
 					if(currentLine.contains(phrase)) {
 						filesThatContainPhrase.add(file);
 						fileReader.close();
@@ -44,8 +44,7 @@ public class Program {
 				textReader.close();
 			}catch(IOException e) {
 				e.printStackTrace();
-			}
-			
+			}	
 			
 		}
 		System.out.println("Datoteke koje sadrze frazu su: ");

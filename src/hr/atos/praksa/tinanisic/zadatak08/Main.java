@@ -12,9 +12,9 @@ public class Main {
 		System.out.println("Unesi broj mjeseca: ");
 		int month = scan.nextInt();
 		
-		if(calendar.IsValidMonth(month)) {
-			calendar.PrintCalender(month);
-			System.out.println("\n"+month+". mjesec ima "+ calendar.GetDays(month)+" dan/a");
+		if(calendar.isValidMonth(month)) {
+			calendar.printCalender(month);
+			System.out.println("\n"+month+". mjesec ima "+ calendar.getDays(month)+" dan/a");
 		}
 		else {
 			throw new Exception("Unesen je mjesec koji ne postoji!");
