@@ -13,6 +13,7 @@ public class Program {
 		List<String> txtFiles;
 		List<String> csvFiles;	
 		List<String> allFiles = new ArrayList<String>();	
+		List<String> filesThatContainPhrase = new ArrayList<String>();
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Unesi direktorij za pretrazivanje: ");
@@ -25,7 +26,7 @@ public class Program {
 				
 		allFiles.addAll(txtFiles);
 		allFiles.addAll(csvFiles);
-		List<String> filesThatContainPhrase = new ArrayList<String>();
+		
 		for(String file : allFiles) {
 			try {
 				FileReader fileReader = new FileReader(directory+"\\"+file);
@@ -42,7 +43,7 @@ public class Program {
 				fileReader.close();
 				textReader.close();
 			}catch(IOException e) {
-				
+				e.printStackTrace();
 			}
 			
 			
