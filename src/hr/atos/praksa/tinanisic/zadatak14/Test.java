@@ -14,8 +14,9 @@ public class Test {
 		
 		case 4: return new Cotangent();
 		
-		default: return null;
+		default : return null;
 		}
+		
 	}
 	
 	public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class Test {
 		int pick;
 		do {
 			System.out.println("Odaberi jednu od podrzanih funkcija\n"
-					+ "(1) Sin\n(2) Cos\n(3) Tan\n(4) Cot");
+					+ "1) Sin\n2) Cos\n3) Tan\n4) Cot");
 			pick = scan.nextInt();
 		}while(pick>4||pick<1);
 		Function function = pickFunction(pick);

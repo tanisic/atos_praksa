@@ -2,7 +2,7 @@ package hr.atos.praksa.tinanisic.zadatak14;
 
 public class Integral {
 
-	public static final double INCREMENT = 1E-4;
+	public static final double INCREMENT = 1E-5;
 	
 	public static double integral(IntegralArguments arguments,Function function) {
 		double area = 0;
