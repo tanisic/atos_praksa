@@ -55,6 +55,7 @@ public class Graph {
 					else {
 						if(j==1)
 						{System.out.print("  ");}
+						
 						else System.out.print("   ");	
 					}
 					
