@@ -10,8 +10,6 @@ public class Program {
 	
 	
 	public static void main(String[] args) {
-		List<String> txtFiles;
-		List<String> csvFiles;	
 		List<String> allFiles = new ArrayList<String>();	
 		List<String> filesThatContainPhrase = new ArrayList<String>();
 		Scanner scan = new Scanner(System.in);
@@ -21,36 +19,40 @@ public class Program {
 		TextManipulator textManipulator = new TextManipulator(directory);
 		System.out.println("Unesi frazu koju zelis pronaci u datotekama: ");
 		String phrase = scan.nextLine();
-		txtFiles = textManipulator.extractTxtFiles();
-		csvFiles = textManipulator.extractCsvFiles();
-				
-		allFiles.addAll(txtFiles);
-		allFiles.addAll(csvFiles);
+					
+		allFiles.addAll(textManipulator.extractTxtFiles());
+		allFiles.addAll(textManipulator.extractCsvFiles());
 		
 		for(String file : allFiles) {
 			try {
 				FileReader fileReader = new FileReader(directory+"\\"+file);
-				BufferedReader textReader = new BufferedReader(fileReader);
+				BufferedReader bufferedReader = new BufferedReader(fileReader);
 				String currentLine;
-				while((currentLine=textReader.readLine()) != null) {
+				while((currentLine=bufferedReader.readLine()) != null) {
 					if(currentLine.contains(phrase)) {
 						filesThatContainPhrase.add(file);
 						fileReader.close();
-						textReader.close();
+						bufferedReader.close();
 						break;
 					}
 				}
 				fileReader.close();
-				textReader.close();
-			}catch(IOException e) {
+				bufferedReader.close();
+			}catch(Exception e) {
 				e.printStackTrace();
 			}	
 			
 		}
+		
+		if(filesThatContainPhrase.isEmpty()) {
+			System.out.println("U direktoriju nema datoteke koja sadrzi frazu.");
+		}
+		else {
 		System.out.println("Datoteke koje sadrze frazu su: ");
 		for(String file : filesThatContainPhrase) {
 			System.out.println(file);
 		}
+	}
 	}
 
 }
