@@ -12,14 +12,14 @@ public class Integral {
 		double A = arguments.getA();
 		double B = arguments.getB();
 		if(t1>t2) {
-			double tempA = t1;
+			double tempT1 = t1;
 			t1=t2;
-			t2=tempA;
+			t2=tempT1;
 			modifier = -1;
 		}
 		for(double i=t1+INCREMENT;i<t2;i+=INCREMENT) {
-			double dFromT1 = i-t1;
-			area+=(INCREMENT/2)*((A*function.funk(t1+dFromT1)+B)+(A*function.funk(t1+dFromT1-INCREMENT)+B));
+			double diffFromT1 = i-t1;
+			area+=(INCREMENT/2)*((A*function.funk(t1+diffFromT1)+B)+(A*function.funk(t1+diffFromT1-INCREMENT)+B));
 		}
 		return (Math.round(area*1000.0)/1000.0)*modifier;
 	}
