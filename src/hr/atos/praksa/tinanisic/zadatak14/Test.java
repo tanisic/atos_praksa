@@ -17,6 +17,7 @@ public class Test {
 		default: return null;
 		}
 	}
+	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int pick;
@@ -34,7 +35,7 @@ public class Test {
 		double a = scan.nextDouble();
 		System.out.println("B = ");
 		double b = scan.nextDouble();
-	
+		scan.close();
 		IntegralArguments arguments = new IntegralArguments(t1,t2,a,b);
 		System.out.println("Površina ispod krivulje je približna: "+Integral.integral(arguments,function));
 
