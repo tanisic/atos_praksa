@@ -36,9 +36,7 @@ public class Test {
 		double b = scan.nextDouble();
 	
 		IntegralArguments arguments = new IntegralArguments(t1,t2,a,b);
-		
-
-		System.out.println("Površina ispod krivulje = "+Integral.integral(arguments,function));
+		System.out.println("Površina ispod krivulje je približna: "+Integral.integral(arguments,function));
 
 	}
 
