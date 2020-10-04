@@ -6,5 +6,9 @@ public class Tangent implements Function {
 	public double funk(double x) {
 		return Math.tan(x);
 	}
+	@Override
+	public String toString() {
+		return "Tan(x)";
+	}
 
 }

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
-
+import java.lang.String;
 public class WordStatistic {
 
 	private HashMap<String,Integer> wordStatistic;
@@ -24,8 +24,9 @@ public class WordStatistic {
 	public void readFile() {
 		while(file.hasNext()) {
 			String word = file.next().toLowerCase();
-			if(!isStringOnlyAlphabet(word)) {
-				word.replaceAll(".,","");
+			if(word.contains(".")) {
+				word=word.substring(0,word.length()-1);
+				
 			}
 			if(wordStatistic.containsKey(word)) {
 				int wordCount = wordStatistic.get(word) + 1;
@@ -37,12 +38,7 @@ public class WordStatistic {
 		}
 		file.close();
 	}
-		public static boolean isStringOnlyAlphabet(String word) {
-			return((word != null) 
-	                && (!word.equals("")) 
-	                && (word.matches("^[a-z]*$")));
-			
-		}
+		
 	public void printWordStatistic(String destination) throws FileNotFoundException, UnsupportedEncodingException {
 		
 		PrintWriter printer = new PrintWriter(destination);

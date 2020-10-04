@@ -38,7 +38,9 @@ public class Test {
 		double b = scan.nextDouble();
 		scan.close();
 		IntegralArguments arguments = new IntegralArguments(t1,t2,a,b);
-		System.out.println("Površina ispod krivulje je približna: "+Integral.integral(arguments,function));
+		System.out.println("Povrsina ispod krivulje \n"+"f(x)="+a+"*"+function.toString()+
+				"+"+b+"\nu granicama T1="+t1+", T2="+t2
+				+ "\nje priblizna: "+Integral.integral(arguments,function));
 
 	}
 

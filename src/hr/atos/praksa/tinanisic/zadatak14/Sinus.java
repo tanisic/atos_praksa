@@ -6,5 +6,9 @@ public class Sinus implements Function{
 	public double funk(double x) {
 		return Math.sin(x);
 	}
+	@Override
+	public String toString() {
+		return "Sin(x)";
+	}
 
 }

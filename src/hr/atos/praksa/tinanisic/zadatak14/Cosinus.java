@@ -6,5 +6,9 @@ public class Cosinus implements Function {
 	public double funk(double x) {
 		return Math.cos(x);
 	}
+	@Override
+	public String toString() {
+		return "Cos(x)";
+	}
 
 }

@@ -29,9 +29,9 @@ public class Graph {
 		for(int i=1;i<=12;i++) {
 			int salary;
 			do {
-			System.out.println("Unesi plaæu za "+i+". mjesec: ");
+			System.out.println("Unesi placu za "+i+". mjesec: ");
 			salary = scan.nextInt();
-			}while(salary<0||salary>5500);
+			}while(salary<0||salary>=5500);
 			salaries.put(i,salary);
 			
 		}
@@ -50,13 +50,15 @@ public class Graph {
 						System.out.print(" x");
 						}
 						else 
-							{System.out.print("  x");}
+						{System.out.print("  x");}
 					}
-					else {
+					else{
+						
 						if(j==1)
 						{System.out.print("  ");}
 						
-						else System.out.print("   ");	
+						else 
+						{System.out.print("   ");}	
 					}
 					
 					

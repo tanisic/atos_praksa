@@ -6,5 +6,9 @@ public class Cotangent implements Function {
 	public double funk(double x) {
 		return 1.0/Math.tan(x);
 	}
+	@Override
+	public String toString() {
+		return "Ctg(x)";
+	}
 
 }
