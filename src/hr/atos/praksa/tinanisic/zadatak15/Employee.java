@@ -1,12 +1,23 @@
 package hr.atos.praksa.tinanisic.zadatak15;
 
+import java.util.*;
+
 public class Employee {
 	
 	private String firstName;
 	private String lastName;
 	private String workplace;
 	private String oib;
+	private static List<Task> tasks;
 	
+	public Employee(String firstName, String lastName, String workplace, String oib) {
+		
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.workplace = workplace;
+		this.oib = oib;
+		
+	}
 	public String getFirstName() {
 		return firstName;
 	}

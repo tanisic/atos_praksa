@@ -1,5 +1,6 @@
 package hr.atos.praksa.tinanisic.zadatak15;
 import java.time.*;
+import java.util.*;
 
 public class Task {
 	
@@ -12,12 +13,13 @@ public class Task {
 	private int spentHours;
 	private LocalTime startTime; 
 	private LocalTime endTime; 
+	private static List<Employee> employees;
 	
 	public enum taskType{
-		bug,task
+		BUG,TASK
 	}
 	public enum status{
-		open,closed,processing
+		OPEN,CLOSED,PROCESSING
 	}
 	public String getTaskName() {
 		return taskName;
@@ -31,14 +33,15 @@ public class Task {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public taskType getTaskType() {
 		return taskType;
 	}
 	public void setTaskType(taskType taskType) {
 		this.taskType = taskType;
 	}
-	public status getCurrentStatus() {
-		return currentStatus;
+	public String getCurrentStatus() {
+		return currentStatus.name();
 	}
 	public void setCurrentStatus(status currentStatus) {
 		this.currentStatus = currentStatus;
