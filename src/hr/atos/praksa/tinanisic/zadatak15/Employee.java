@@ -5,7 +5,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String workplace;
-	private double oib;
+	private String oib;
 	
 	public String getFirstName() {
 		return firstName;
@@ -25,10 +25,10 @@ public class Employee {
 	public void setWorkplace(String workplace) {
 		this.workplace = workplace;
 	}
-	public double getOib() {
+	public String getOib() {
 		return oib;
 	}
-	public void setOib(double oib) {
+	public void setOib(String oib) {
 		this.oib = oib;
 	}
 	
