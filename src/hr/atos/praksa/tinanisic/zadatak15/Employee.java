@@ -9,7 +9,7 @@ public class Employee {
 	private String workplace;
 	private String oib;
 	private int employeeId;
-	private static List<EmployeeTask> tasks;
+	
 	
 	public Employee(int id,String firstName, String lastName, String workplace, String oib) {
 		this.employeeId = id;

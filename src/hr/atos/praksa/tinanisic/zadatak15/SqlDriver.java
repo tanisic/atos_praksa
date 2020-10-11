@@ -27,7 +27,7 @@ public class SqlDriver {
 		Statement statement;
 		ResultSet result = null;
 			statement = connection.createStatement();
-			 result= statement.executeQuery("select * from atos_praksa.employee");	
+			 result= statement.executeQuery("select * from employee");	
 		List<Employee> employees = new ArrayList<Employee>();
 		while(result.next()) {
 			
@@ -45,7 +45,6 @@ public class SqlDriver {
 	
 	public void addEmployee(Employee employee) throws SQLException {
 		Statement statement;
-		ResultSet result = null;
 		statement = connection.createStatement();
 		String sql = "insert into employee "
 		 		+ "(first_name,last_name,workplace,employee_oib)"
@@ -54,6 +53,19 @@ public class SqlDriver {
 		 		+ "\'"+employee.getOib()+"\')";
 		statement.executeUpdate(sql);
 			
+		
+	}
+	public void addTask(Task task) throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+		String sql = "insert into task "
+		 		+ "(name,description,task_type,status,complexity,spent_hours,"
+		 		+ "start_time,end_time)"
+		 		+ " values ("+"\'"+task.getTaskName()+"\',"
+		 		+ "\'"+task.getDescription()+"\',"+"\'"+task.getTaskType()+"\',"
+		 		+ "\'"+task.getCurrentStatus()+"\',\'"+task.getComplexity()+"\',+'"+task.getSpentHours()
+		 		+"\',\'"+task.getStartTime()+"\',"+task.getEndTime()+"\')";
+		statement.executeUpdate(sql);
 		
 	}
 	
