@@ -13,7 +13,7 @@ public class Task {
 	private int spentHours;
 	private LocalTime startTime; 
 	private LocalTime endTime; 
-	private static List<Employee> employees;
+	private static List<EmployeeTask> employees;
 	
 	public enum taskType{
 		BUG,TASK

@@ -31,7 +31,8 @@ public class SqlDriver {
 		List<Employee> employees = new ArrayList<Employee>();
 		while(result.next()) {
 			
-			Employee temp = new Employee(result.getString("first_name"),
+			Employee temp = new Employee(result.getInt("employee_id"),
+					result.getString("first_name"),
 					result.getString("last_name"),
 					result.getString("workplace"),
 					result.getString("employee_oib")

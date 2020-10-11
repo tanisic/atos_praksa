@@ -8,8 +8,17 @@ public class Employee {
 	private String lastName;
 	private String workplace;
 	private String oib;
-	private static List<Task> tasks;
+	private int employeeId;
+	private static List<EmployeeTask> tasks;
 	
+	public Employee(int id,String firstName, String lastName, String workplace, String oib) {
+		this.employeeId = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.workplace = workplace;
+		this.oib = oib;
+		
+	}
 	public Employee(String firstName, String lastName, String workplace, String oib) {
 		
 		this.firstName = firstName;
@@ -17,6 +26,12 @@ public class Employee {
 		this.workplace = workplace;
 		this.oib = oib;
 		
+	}
+	public int getId() {
+		return employeeId;
+	}
+	public void setId(int id) {
+		this.employeeId = id;
 	}
 	public String getFirstName() {
 		return firstName;
