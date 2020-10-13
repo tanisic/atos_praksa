@@ -15,8 +15,19 @@ public class Task {
 	private LocalTime endTime; 
 
 	
+	public Task(String taskName, String description,taskType taskType,
+			status currentStatus, int complexity, int spentHours, LocalTime startTime, LocalTime endTime) {
+		this.taskName = taskName;
+		this.description = description;
+		this.taskType = taskType;
+		this.currentStatus = currentStatus;
+		this.complexity = complexity;
+		this.spentHours = spentHours;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
 	public enum taskType{
-		BUG,TASK
+		BUG,TASK 
 	}
 	public enum status{
 		OPEN,CLOSED,PROCESSING
