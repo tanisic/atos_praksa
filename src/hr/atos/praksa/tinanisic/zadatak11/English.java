@@ -30,6 +30,7 @@ public class English implements ILanguage{
 		user.setLastName(scan.nextLine());
 		System.out.println(propertyLoad.getProperty("address"));
 		user.setAddress(scan.nextLine());
+		System.out.println(propertyLoad.getProperty("goodbye"));
 		
 		
 	}
