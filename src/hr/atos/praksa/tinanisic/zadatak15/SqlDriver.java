@@ -23,6 +23,7 @@ public class SqlDriver {
 		this.password = sqlData.getPassword();
 		this.username = sqlData.getUsername();
 		this.connection = DriverManager.getConnection(address,username,password);
+		System.out.println("INICIALIJ");
 	}
 	
 	public Connection getConnection()
