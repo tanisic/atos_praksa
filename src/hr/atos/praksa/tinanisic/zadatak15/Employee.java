@@ -8,17 +8,9 @@ public class Employee {
 	private String lastName;
 	private String workplace;
 	private String oib;
-	private int employeeId;
 	
 	
-	public Employee(int id,String firstName, String lastName, String workplace, String oib) {
-		this.employeeId = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.workplace = workplace;
-		this.oib = oib;
-		
-	}
+	
 	public Employee(String firstName, String lastName, String workplace, String oib) {
 		
 		this.firstName = firstName;
@@ -27,12 +19,7 @@ public class Employee {
 		this.oib = oib;
 		
 	}
-	public int getId() {
-		return employeeId;
-	}
-	public void setId(int id) {
-		this.employeeId = id;
-	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -56,6 +43,12 @@ public class Employee {
 	}
 	public void setOib(String oib) {
 		this.oib = oib;
+	}
+
+	@Override
+	public String toString() {
+		return "firstName=" + firstName + "\nlastName=" + lastName + "\nworkplace=" + workplace + "\noib="
+				+ oib;
 	}
 	
 	

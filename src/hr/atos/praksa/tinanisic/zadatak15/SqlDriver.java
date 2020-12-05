@@ -7,21 +7,18 @@ import java.util.*;
 public class SqlDriver {
 	private static SqlDriver instance;
 	private Connection connection;
-	private String address;
-	private String password;
-	private String username;
+	private final String address = "jdbc:mysql://localhost:3306/zadatak15";
+	private String password="";
+	private String username="root";
 	
-	public static SqlDriver getInstance(SqlLogin sqlLogin) throws SQLException {
+	public static SqlDriver getInstance() throws SQLException {
 		if(instance == null) {
-			instance =  new SqlDriver(sqlLogin);
+			instance =  new SqlDriver();
 		}
 		return instance;
 	}
 	
-	private SqlDriver(SqlLogin sqlData) throws SQLException {
-		this.address = sqlData.getHostname();
-		this.password = sqlData.getPassword();
-		this.username = sqlData.getUsername();
+	private SqlDriver() throws SQLException {
 		this.connection = DriverManager.getConnection(address,username,password);
 	}
 	

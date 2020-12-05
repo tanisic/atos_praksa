@@ -15,39 +15,41 @@ public class Admin implements IAdmin{
 	}
 
 	@Override
-	public Employee createEmployee() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Task createTask() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void editTask(Task task) {
+	public void createEmployee() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void editEmployee(Employee employee) {
+	public void createTask() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeTask(Task task) {
+	public void editTask(int taskID) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeEmployee(Employee employee) {
+	public void editEmployee(int employeeID) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void removeTask(int taskID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeEmployee(int employeeID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

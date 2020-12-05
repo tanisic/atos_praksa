@@ -8,8 +8,8 @@ public interface IDatabaseDataManipulation {
 	public void addEmployee(Employee employee) throws SQLException;
 	public void addTask(Task task)throws SQLException;
 	public List<Task> getTaskList()throws SQLException;
-	public void editTask(int oldId,Task newTask)throws SQLException;
+	public void editTask(int taskID)throws SQLException;
 	public void editEmployee(int oldId,Employee employee)throws SQLException;
-	public void removeTask(Task task)throws SQLException;
-	public void removeEmployee(Employee employee)throws SQLException;
+	public void removeTask(int taskID)throws SQLException;
+	public void removeEmployee(int employeeID)throws SQLException;
 }

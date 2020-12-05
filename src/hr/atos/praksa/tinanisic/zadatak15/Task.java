@@ -1,22 +1,41 @@
 package hr.atos.praksa.tinanisic.zadatak15;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.*;
 import java.util.*;
 
 public class Task {
 	
-	
+	private int taskID;
 	private String taskName;
 	private String description;
 	private taskType taskType;
 	private status	currentStatus;
 	private int complexity;
 	private int spentHours;
-	private LocalTime startTime; 
-	private LocalTime endTime; 
+	private Timestamp startTime; 
+	private Timestamp endTime; 
 
 	
-	public Task(String taskName, String description,taskType taskType,
-			status currentStatus, int complexity, int spentHours, LocalTime startTime, LocalTime endTime) {
+	
+	public Task(String taskName, String description,
+			Task.taskType taskType, Task.status currentStatus, int complexity,
+			int spentHours, Timestamp startTime, Timestamp endTime) {
+		super();
+		this.taskName = taskName;
+		this.description = description;
+		this.taskType = taskType;
+		this.currentStatus = currentStatus;
+		this.complexity = complexity;
+		this.spentHours = spentHours;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+	public Task(int taskID,String taskName, String description,
+			Task.taskType taskType, Task.status currentStatus, int complexity,
+			int spentHours, Timestamp startTime, Timestamp endTime) {
+		super();
+		this.taskID = taskID;
 		this.taskName = taskName;
 		this.description = description;
 		this.taskType = taskType;
@@ -69,16 +88,26 @@ public class Task {
 	public void setSpentHours(int spentHours) {
 		this.spentHours = spentHours;
 	}
-	public LocalTime getStartTime() {
+	public Timestamp getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(LocalTime startTime) {
+	public void setStartTime(Timestamp startTime) {
 		this.startTime = startTime;
 	}
-	public LocalTime getEndTime() {
+	public Timestamp getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(LocalTime endTime) {
+	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
 	}
+	public int getTaskID() {
+		return taskID;
+	}
+	@Override
+	public String toString() {
+		return "taskID=" + taskID + ",\ntaskName=" + taskName + ",\ndescription=" + description + ",\ntaskType="
+				+ taskType + ",\ncurrentStatus=" + currentStatus + ",\ncomplexity=" + complexity + ",\nspentHours="
+				+ spentHours + ",\nstartTime=" + startTime + ",\nendTime=" + endTime;
+	}
+	
 }

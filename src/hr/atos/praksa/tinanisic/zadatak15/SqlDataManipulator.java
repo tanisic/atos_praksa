@@ -3,31 +3,36 @@ package hr.atos.praksa.tinanisic.zadatak15;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
+import hr.atos.praksa.tinanisic.zadatak15.Task.taskType;
+import jdk.jshell.Snippet.Status;
 
 public class SqlDataManipulator implements IDatabaseDataManipulation {
 
 	private SqlDriver driver;
 	
-	public SqlDataManipulator(SqlLogin sqlLogin) throws SQLException {
-		driver = SqlDriver.getInstance(sqlLogin);
+	public SqlDataManipulator() throws SQLException {
+		driver = SqlDriver.getInstance();
 	}
 	
 	public List<Employee> getEmployeeList() throws SQLException {
 		Statement statement;
 		ResultSet result = null;
 			statement = driver.getConnection().createStatement();
-			 result= statement.executeQuery("select * from employee");	
+			 result= statement.executeQuery("SELECT * FROM zaposlenici");	
 		List<Employee> employees = new ArrayList<Employee>();
 		while(result.next()) {
 			
-			Employee temp = new Employee(result.getInt("employee_id"),
-					result.getString("first_name"),
-					result.getString("last_name"),
-					result.getString("workplace"),
-					result.getString("employee_oib")
+			Employee temp = new Employee(
+					result.getString("ime"),
+					result.getString("prezime"),
+					result.getString("radno_mjesto"),
+					result.getString("oib")
 					);
+					
 			employees.add(temp);
 		}
 		return employees;
@@ -35,8 +40,8 @@ public class SqlDataManipulator implements IDatabaseDataManipulation {
 	public void addEmployee(Employee employee) throws SQLException {
 		Statement statement;
 		statement = driver.getConnection().createStatement();
-		String sql = "insert into employee "
-		 		+ "(first_name,last_name,workplace,employee_oib)"
+		String sql = "INSERT INTO zaposlenici "
+		 		+ "(ime,prezime,radno_mjesto,oib)"
 		 		+ " values ("+"\'"+employee.getFirstName()+"\',"
 		 		+ "\'"+employee.getLastName()+"\',"+"\'"+employee.getWorkplace()+"\',"
 		 		+ "\'"+employee.getOib()+"\')";
@@ -47,10 +52,10 @@ public class SqlDataManipulator implements IDatabaseDataManipulation {
 	public void addTask(Task task) throws SQLException {
 		Statement statement;
 		statement = driver.getConnection().createStatement();
-		String sql = "insert into task "
-		 		+ "(name,description,task_type,status,complexity,spent_hours,"
-		 		+ "start_time,end_time)"
-		 		+ " values ("+"\'"+task.getTaskName()+"\',"
+		String sql = "INSERT INTO zadaci"
+		 		+ "(ime,opis,tip,status,trenutni_status,kompleksnost,potroseno_vrijeme,"
+		 		+ "pocetni_datum,zavrsni_datum)"
+		 		+ " VALUES ("+"\'"+task.getTaskName()+"\',"
 		 		+ "\'"+task.getDescription()+"\',"+"\'"+task.getTaskType()+"\',"
 		 		+ "\'"+task.getCurrentStatus()+"\',\'"+task.getComplexity()+"\',+'"+task.getSpentHours()
 		 		+"\',\'"+task.getStartTime()+"\',"+task.getEndTime()+"\')";
@@ -63,17 +68,33 @@ public class SqlDataManipulator implements IDatabaseDataManipulation {
 		Statement statement = null;
 		ResultSet result = null;
 		statement = driver.getConnection().createStatement();
-		result = statement.executeQuery("select * from task");
+		result = statement.executeQuery("select * from zadaci");
 		List<Task> tasks = new ArrayList<Task>();
 		while(result.next()) {
-			Task temp = new Task("")
+			Task temp = new Task(result.getInt("zadatak_id"),
+					result.getString("naziv"),
+					result.getString("opis"),
+					Task.taskType.values()[result.getInt("tip")],
+					Task.status.values()[result.getInt("trenutni_status")],
+					result.getInt("kompleksnost"),
+					result.getInt("potroseno_vrijeme"),
+					result.getTimestamp("pocetni_datum"),
+					result.getTimestamp("zavrsni_datum")
+					);
+			tasks.add(temp);
+			
 		}
+		return tasks;
 	}
 
+	
+
+
 	@Override
-	public void editTask(int oldId, Task newTask) throws SQLException {
-		// TODO Auto-generated method stub
-		
+	public void editTask(int taskID) throws SQLException {
+		Statement statement = driver.getConnection().createStatement();
+		String query = "SELECT * FROM zadaci WHERE zadatak_id="+taskID;
+		ResultSet result = statement.executeQuery(query);
 	}
 
 	@Override
@@ -83,16 +104,18 @@ public class SqlDataManipulator implements IDatabaseDataManipulation {
 	}
 
 	@Override
-	public void removeTask(Task task) throws SQLException {
+	public void removeTask(int taskID) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeEmployee(Employee employee) throws SQLException {
+	public void removeEmployee(int employeeID) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 	
 }
